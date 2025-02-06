@@ -1,71 +1,128 @@
+/* Base styles */
 body {
-    text-align: center;
-    background-color: #283149;
-  }
-  
-  h1 {
-    font-size: 5rem;
-    color: #DBEDF3;
-    font-family: "Arvo", cursive;
-    text-shadow: 3px 0 #DA0463;
-  }
-  
-  footer {
-    color: #DBEDF3;
-    font-family: sans-serif;
-  }
-  
+  text-align: center;
+  background-color: #283149;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  color: #dbedf3;
+  font-family: "Arvo", cursive;
+  text-shadow: 3px 0 #da0463;
+  margin: 20px 0;
+}
+
+footer {
+  color: #dbedf3;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.set {
+  margin: 5% auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 15px;
+}
+
+.pressed {
+  box-shadow: 0 3px 4px 0 #dbedf3;
+  opacity: 0.5;
+}
+
+.drum {
+  outline: none;
+  border: 10px solid #404b69;
+  font-size: clamp(2.5rem, 4vw, 5rem);
+  font-family: "Arvo", cursive;
+  line-height: 1.5;
+  font-weight: 900;
+  color: #da0463;
+  text-shadow: 3px 0 #dbedf3;
+  border-radius: 15px;
+  width: clamp(100px, 20vw, 150px);
+  height: clamp(100px, 20vw, 150px);
+  margin: 5px;
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Background images for each button */
+.w {
+  background-image: url("images/crash.png");
+}
+.a {
+  background-image: url("images/kick.png");
+}
+.s {
+  background-image: url("images/snare.png");
+}
+.d {
+  background-image: url("images/tom1.png");
+}
+.j {
+  background-image: url("images/tom2.png");
+}
+.k {
+  background-image: url("images/tom3.png");
+}
+.l {
+  background-image: url("images/tom4.png");
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
   .set {
-    margin: 10% auto;
+    margin: 3% auto;
   }
-  
-  .pressed {
-    box-shadow: 0 3px 4px 0 #DBEDF3;
-    opacity: 0.5;
-  }
-  
+
   .drum {
-    outline: none;
-    border: 10px solid #404B69;
-    font-size: 5rem;
-    font-family: 'Arvo', cursive;
-    line-height: 2;
-    font-weight: 900;
-    color: #DA0463;
-    text-shadow: 3px 0 #DBEDF3;
-    border-radius: 15px;
-    display: inline-block;
-    width: 150px;
-    height: 150px;
-    margin: 10px;
-    background-color: white;
+    margin: 5px;
+    border-width: 5px;
   }
-  
-  /* Background images for each button */
-  .w {
-    background-image: url("images/crash.png");
+}
+
+/* Mobile Landscape Mode - Bigger Buttons */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .set {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
   }
-  
-  .a {
-    background-image: url("images/kick.png");
+
+  .drum {
+    width: clamp(150px, 30vw, 200px);
+    height: clamp(150px, 30vw, 200px);
+    font-size: clamp(3rem, 6vw, 6rem);
+    border-width: 8px;
   }
-  
-  .s {
-    background-image: url("images/snare.png");
+}
+
+/* Portrait mode: Prompt to rotate */
+@media screen and (orientation: portrait) {
+  body::before {
+    content: "Rotate your device for a bigger and better experience!";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 80%;
   }
-  
-  .d {
-    background-image: url("images/tom1.png");
+
+  .set {
+    display: none;
   }
-  
-  .j {
-    background-image: url("images/tom2.png");
-  }
-  
-  .k {
-    background-image: url("images/tom3.png");
-  }
-  
-  .l {
-    background-image: url("images/tom4.png");
-  }
+}
